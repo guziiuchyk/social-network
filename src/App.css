@@ -1,6 +1,11 @@
 ul{
   list-style: none;
 }
+
+img{
+  user-select: none;
+}
+
 .Wrapper{
   display: grid;
   margin: 5px 40px;
@@ -9,7 +14,7 @@ ul{
   "sideBar c";
 
   grid-template-rows: 60px 1fr;
-  grid-template-columns: 1fr 9fr;
+  grid-template-columns: 1fr 8fr;
   grid-gap: 10px;
 }
 .header{
@@ -24,7 +29,6 @@ ul{
 }
 .profile{
   grid-area: c;
-  padding: 30px 10px;
 }
 .profile__content-img{
   width: 100%;
@@ -35,7 +39,8 @@ ul{
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color:   #7cdcff
+  background-color:   #7cdcff;
+  user-select: none;
   
 }
 .sideBar__list{
@@ -49,6 +54,8 @@ ul{
   border: 1px solid black;
   border-radius: 10px;
   text-align: center;
+  cursor: pointer;
+  
 }
 
 .sideBar__list li:hover{
@@ -59,6 +66,12 @@ ul{
   margin-top: 20px;
   
 }
+
+.profile__profile__info li:first-child{
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+
 .profile__profile{
   display: flex;
 }
@@ -66,15 +79,45 @@ ul{
   font-size: 20px;
 }
 .profile__posts__title{
-  margin: 20px 0 20px 10%;
+  margin: 20px 0;
   font-size: 25px;
 }
 .profile__posts__text-area{
   resize: none;
   display: block;
-  margin: 0 auto;
-  width: 95%;
+  width: 100%;
   height: 200px;
   font-size: 20px;
   border-radius: 5px;
+  background-color: #e9f9ff;
+}
+
+
+
+.button {
+  padding: 10px 20px;
+  border-radius: 10px;
+  background-color: #55c3fe;
+  color: white;
+  font-size: 15px;
+  user-select: none;
+}
+
+.button:hover{
+  background-color: #19c0fd;
+  cursor: pointer;
+}
+
+.button:active{
+  background-color: #008ff6;
+}
+
+.profile__profile__avatar{
+  width: 140px;
+  height: 140px;
+}
+
+.profile__posts__button{
+  float: inline-end;
+  margin: 10px 0 0 0;
 }

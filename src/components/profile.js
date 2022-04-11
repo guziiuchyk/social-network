@@ -7,14 +7,15 @@ const profile = () => {
       <div className="profile__profile">
         <img src="https://i.pinimg.com/236x/85/06/5d/85065dd0aba6a51eb023f029f879b62a.jpg" alt="avatar" className="profile__profile__avatar" />
         <ul className='profile__profile__info'>
-          <li>name:Nazar</li>
+          <li>Nazar</li>
           <li>age:15</li>
           <li>birthday: 4 August</li> 
         </ul>
       </div>
       <div className="profile__posts">
         <div className="profile__posts__title">MyPosts</div>
-        <textarea className='profile__posts__text-area' name="post" id="1" cols="30" rows="10"></textarea>
+        <textarea placeholder="New Post" className='profile__posts__text-area' name="post" id="1" cols="30" rows="10"></textarea>
+        <div className="profile__posts__button button">Send</div>
       </div>
     </nav>
   )
