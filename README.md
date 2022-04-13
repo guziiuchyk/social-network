@@ -1,3 +1,5 @@
 # Hello my name is Nazar.
+# I'm fiftean years old.
+# I live in Ukraine.
 # I starting learn React.
-# In this project i create social network
+# In this project i create social network.
