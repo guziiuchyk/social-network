@@ -1,0 +1,20 @@
+.profile__post {
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+}
+
+.post__img {
+  background-color: #d29933;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.post__text {
+  margin-left: 20px;
+}
+.like{
+  margin: 0 0 30px 2px;
+
+}

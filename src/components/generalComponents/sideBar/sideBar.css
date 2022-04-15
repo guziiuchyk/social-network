@@ -1,0 +1,35 @@
+.sideBar{
+    grid-area: sideBar;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color:   #7cdcff;
+    user-select: none;
+    
+  }
+  .sideBar__list{
+    list-style: none;
+    font-size: 25px;
+    padding: 0;
+  }
+  
+  .sideBar__list__item{
+    margin: 6px 0;
+    border: 1px solid black;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    
+  }
+  
+  .sideBar__list__item:hover{
+    background-color:   #4fcbf9
+  }
+  
+  .sideBar__list__item:last-child{
+    margin-top: 20px;
+    
+  }
+.sideBar__list__item .active{
+  color: #3e24f7;
+}
