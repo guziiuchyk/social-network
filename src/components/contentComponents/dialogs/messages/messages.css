@@ -1,0 +1,25 @@
+.messagesElements{
+  overflow-y: scroll;
+  height: 500px;
+}
+.messages__textarea{
+  font-size: 17px;
+  height: 34px;
+  width: 500px;
+  border-radius: 30px;
+  resize: none;
+  padding: 4px 15px;
+}
+.createNewMessage{
+  display: flex;
+  align-items: center;
+}
+.createNewMessage__send{
+  margin: 0 0 0 10px;
+  width: 40px;
+  height: 40px;
+  background-image: url("https://static.thenounproject.com/png/373675-200.png");
+  background-repeat: no-repeat;
+  background-size: 40px 40px;
+  cursor: pointer;
+}

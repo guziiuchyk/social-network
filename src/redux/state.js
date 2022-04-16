@@ -21,7 +21,15 @@ let data = {
             {id:'2', sender:'Nazar',text:'hello'},
             {id:'3', sender:'You',text:'hello'},
             {id:'4', sender:'Nazar',text:'hello'},
-            {id:'5', sender:'You',text:'hello'}
+            {id:'5', sender:'You',text:'hello'},
+            {id:'5', sender:'You',text:'hello'},
+            {id:'5', sender:'You',text:'hello'},
+            {id:'5', sender:'You',text:'hello'},
+            {id:'5', sender:'You',text:'hello'},
+            {id:'5', sender:'You',text:'hello'},
+            {id:'5', sender:'You',text:'hello'},
+            {id:'5', sender:'You',text:'hello'},
+            {id:'5', sender:'You',text:'hello'},
         ],
     }
 
