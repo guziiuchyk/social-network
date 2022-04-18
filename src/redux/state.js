@@ -1,3 +1,5 @@
+import {rerenderEntireTree} from "../render";
+
 let data = {
     profilePage: {
         postsData : [
@@ -22,16 +24,22 @@ let data = {
             {id:'3', sender:'You',text:'hello'},
             {id:'4', sender:'Nazar',text:'hello'},
             {id:'5', sender:'You',text:'hello'},
-            {id:'5', sender:'You',text:'hello'},
-            {id:'5', sender:'You',text:'hello'},
-            {id:'5', sender:'You',text:'hello'},
-            {id:'5', sender:'You',text:'hello'},
-            {id:'5', sender:'You',text:'hello'},
-            {id:'5', sender:'You',text:'hello'},
-            {id:'5', sender:'You',text:'hello'},
-            {id:'5', sender:'You',text:'hello'},
+
         ],
     }
 
 };
+
+let getLastId = () => {
+    return data.profilePage.postsData[data.profilePage.postsData.length - 1].id
+}
+
+let addPost = (postMessage) =>{
+    let post = {id:(+getLastId() + 1),likeCount:0, text:postMessage };
+    data.profilePage.postsData.push(post)
+    rerenderEntireTree(data)
+}
+
+
+export {addPost};
 export default data;

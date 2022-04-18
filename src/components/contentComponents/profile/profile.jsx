@@ -10,8 +10,8 @@ const profile = (props) => {
         <nav className="profile">
             <ContentImg />
             <Info/>
-            <NewPost />
-            <Posts postsData={props.profilePage.postsData} />
+            <NewPost addPost={props.addPost}/>
+            <Posts postsData={props.profilePage.postsData}/>
         </nav>
     )
 }

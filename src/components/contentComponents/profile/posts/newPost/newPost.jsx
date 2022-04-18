@@ -1,11 +1,14 @@
 import React from 'react';
 import './newPost.css';
 
-const NewPost = () => {
+const NewPost = (props) => {
+
     let textArea = React.createRef();
     let addPost = () => {
-        alert(textArea.current.value)
+        props.addPost(textArea.current.value);
+        textArea.current.value = '';
     }
+
     return (
         <div className="profile__create-post">
             <div className="profile__create-post__title">MyPosts</div>
