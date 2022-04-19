@@ -51,11 +51,21 @@ let store = {
             this.rerenderEntireTree(this.data)
             this.dispatch({type:'UPDATE-NEW-POST-TEXT', textareaText: ''})
         } else if(action.type === 'UPDATE-NEW-POST-TEXT'){
+
             this._data._setTextareaText(action.textareaText);
             this.rerenderEntireTree(this._data);
         }
     }
 }
+
+export let AddPostActoinCreator = () => {
+    return {type:'ADD-POST'}
+};
+
+export let onTextareaChangeActionCreator = (text) => {
+    return {type:'UPDATE-NEW-POST-TEXT',textareaText:text}
+}
+
 
 export default store
 
