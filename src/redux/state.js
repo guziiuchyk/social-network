@@ -1,9 +1,12 @@
-
+const ADD_POST = 'ADD-POST';
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
+const SEND_NEW_MESSAGE = 'SEND-NEW-MESSAGE';
 
 let store = {
     _data : {
         _setTextareaText(text){
-            this.profilePage.textareaText = text;
+            this.profilePage.NewPostText = text;
         },
         profilePage: {
             postsData : [
@@ -12,7 +15,7 @@ let store = {
                 {id: '3', likeCount: '12', text: 'I\'m learning React'},
                 {id: '4', likeCount: '9', text: 'Hello my subscribes'},
             ],
-            textareaText:''
+            NewPostText:''
         },
         dialogsPage:{
             dialogsData : [
@@ -31,6 +34,7 @@ let store = {
                 {id:'5', sender:'You',text:'hello'},
 
             ],
+            newMessageText:'',
         }
 
     },
@@ -38,34 +42,47 @@ let store = {
         return this._data
     },
 
-    getLastPostId () {
-        return this._data.profilePage.postsData[this._data.profilePage.postsData.length - 1].id
+    getLastId (obj) {
+        return obj[obj.length - 1].id
     },
     subscribe (observer) {
        this.rerenderEntireTree = observer;
     },
     dispatch(action){
-        if(action.type === 'ADD-POST'){
-            let post = {id:(Number(this.getLastPostId) + 1),likeCount:'0', text:this._data.profilePage.textareaText };
+        if(action.type === ADD_POST){
+            let post = {id:(Number(this.getLastId(this._data.profilePage.postsData)) + 1),likeCount:'0', text:this._data.profilePage.NewPostText };
             this._data.profilePage.postsData.push(post)
             this.rerenderEntireTree(this.data)
-            this.dispatch({type:'UPDATE-NEW-POST-TEXT', textareaText: ''})
-        } else if(action.type === 'UPDATE-NEW-POST-TEXT'){
+            this.dispatch(updateNewPostTextCreator(''))
+        }
 
+        else if(action.type === UPDATE_NEW_POST_TEXT){
             this._data._setTextareaText(action.textareaText);
             this.rerenderEntireTree(this._data);
         }
+
+        else if (action.type === UPDATE_NEW_MESSAGE_TEXT){
+            this._data.dialogsPage.newMessageText = action.textareaText
+            this.rerenderEntireTree(this._data)
+        }
+
+        else if(action.type === SEND_NEW_MESSAGE){
+            let message = {id:(Number(this.getLastId(this._data.dialogsPage.messageData)) + 1),sender:'You',text: this._data.dialogsPage.newMessageText}
+            this._data.dialogsPage.messageData.push(message);
+            this.dispatch(updateNewMessageTextCreator(''));
+            this.rerenderEntireTree(this._data);
+        }
+
     }
 }
 
-export let AddPostActoinCreator = () => {
-    return {type:'ADD-POST'}
-};
+export const  sendNewMessageCreator = ( (text, sender) => ({type:SEND_NEW_MESSAGE,textareaText:text,sender:sender}))
 
-export let onTextareaChangeActionCreator = (text) => {
-    return {type:'UPDATE-NEW-POST-TEXT',textareaText:text}
-}
+export const updateNewMessageTextCreator = (text) => ({type:UPDATE_NEW_MESSAGE_TEXT,textareaText: text})
 
+export const AddPostCreator = () => ({type:ADD_POST})
+
+export const updateNewPostTextCreator = (text) => ({type:UPDATE_NEW_POST_TEXT,textareaText:text})
 
 export default store
 

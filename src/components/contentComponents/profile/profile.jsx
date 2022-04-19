@@ -10,7 +10,7 @@ const profile = (props) => {
         <nav className="profile">
             <ContentImg />
             <Info/>
-            <NewPost dispatch={props.dispatch} textareaText = {props.profilePage.textareaText}/>
+            <NewPost dispatch={props.dispatch} textareaText = {props.profilePage.NewPostText}/>
             <Posts postsData={props.profilePage.postsData}/>
         </nav>
     )

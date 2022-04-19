@@ -9,6 +9,7 @@ const DialogsList = (props) => {
             <div className="dialogsList">
                 {dialogsElements}
             </div>
+
     );
 };
 
