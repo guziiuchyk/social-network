@@ -2,7 +2,7 @@
 
 let store = {
     _data : {
-        setTextareaText(text){
+        _setTextareaText(text){
             this.profilePage.textareaText = text;
         },
         profilePage: {
@@ -20,7 +20,7 @@ let store = {
                 {id:'2', name:'Nazar'},
                 {id:'3', name:'Vasyl'},
                 {id:'4', name:'Ivan'},
-                {id:'5', name:'Myloka'},
+                {id:'5', name:'Mykola'},
                 {id:'6', name:'Oleg'},
             ],
             messageData : [
@@ -38,24 +38,23 @@ let store = {
         return this._data
     },
 
-    addPost () {
-        let post = {id:(Number(this.getLastPostId) + 1),likeCount:'0', text:this._data.profilePage.textareaText };
-        this._data.profilePage.postsData.push(post)
-        this.rerenderEntireTree(this.data)
-        this.updateNewPostText('')
-    },
     getLastPostId () {
         return this._data.profilePage.postsData[this._data.profilePage.postsData.length - 1].id
-    },
-    updateNewPostText (textareaText) {
-        this._data.setTextareaText(textareaText)
-
-        this.rerenderEntireTree(this._data)
     },
     subscribe (observer) {
        this.rerenderEntireTree = observer;
     },
-    rerenderEntireTree(){},
+    dispatch(action){
+        if(action.type === 'ADD-POST'){
+            let post = {id:(Number(this.getLastPostId) + 1),likeCount:'0', text:this._data.profilePage.textareaText };
+            this._data.profilePage.postsData.push(post)
+            this.rerenderEntireTree(this.data)
+            this.dispatch({type:'UPDATE-NEW-POST-TEXT', textareaText: ''})
+        } else if(action.type === 'UPDATE-NEW-POST-TEXT'){
+            this._data._setTextareaText(action.textareaText);
+            this.rerenderEntireTree(this._data);
+        }
+    }
 }
 
 export default store

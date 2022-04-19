@@ -5,13 +5,14 @@ const NewPost = (props) => {
 
     let textArea = React.createRef();
     let addPost = () => {
-        props.addPost();
+        props.dispatch({type:'ADD-POST'});
     }
 
     let onTextareaChange = () => {
-        props.updateNewPostText(textArea.current.value)
+        props.dispatch({type:'UPDATE-NEW-POST-TEXT',textareaText:textArea.current.value})
 
     };
+
     return (
         <div className="profile__create-post">
             <div className="profile__create-post__title">MyPosts</div>

@@ -7,7 +7,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Music from "./components/contentComponents/music/music";
 import News from "./components/contentComponents/news/news";
 import Settings from "./components/contentComponents/settings/settings";
-import store from "./redux/state";
 
 function App(props) {
     return (
@@ -17,7 +16,7 @@ function App(props) {
             <SideBar/>
             <div className='content'>
                 <Routes>
-                    <Route path="/profile" element={<Profile updateNewPostText={store.updateNewPostText.bind(store)} addPost={store.addPost.bind(store)} profilePage={props.data.profilePage}  />} />
+                    <Route path="/profile" element={<Profile dispatch={props.dispatch} profilePage={props.data.profilePage}  />} />
                     <Route path="/dialogs/*" element={<Dialogs dialogsPage={props.data.dialogsPage}  />} />
                     <Route path="/music" element={<Music />} />
                     <Route path="/news" element={<News />} />
