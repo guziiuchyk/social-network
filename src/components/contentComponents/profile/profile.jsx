@@ -1,8 +1,8 @@
 import './profile.css'
 import Info from "./info/info";
-import NewPost from "./posts/newPost/newPost";
 import ContentImg from "./contentImg/contentImg";
-import Posts from "./posts/posts";
+import NewPostContainer from "./posts/newPost/newPostContainer";
+import PostsContainer from "./posts/postsContainer";
 
 
 const profile = (props) => {
@@ -10,8 +10,8 @@ const profile = (props) => {
         <nav className="profile">
             <ContentImg />
             <Info/>
-            <NewPost dispatch={props.dispatch} textareaText = {props.profilePage.NewPostText}/>
-            <Posts postsData={props.profilePage.postsData}/>
+            <NewPostContainer dispatch={props.dispatch} textareaText = {props.profilePage.NewPostText}/>
+            <PostsContainer postsData={props.profilePage.postsData}/>
         </nav>
     )
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import Message from "./message/message";
 import './messages.css'
-import NewMessage from "./newMessage/newMessage";
+import NewMessageContainer from "./newMessage/newMessageContainer";
 
 const Messages = (props) => {
     let messagesElements = props.dialogsPage.messageData
@@ -12,7 +12,7 @@ const Messages = (props) => {
             <div className="messagesElements">
                 {messagesElements}
             </div>
-            <NewMessage dialogsPage={props.dialogsPage} dispatch={props.dispatch} />
+            <NewMessageContainer dialogsPage={props.dialogsPage} dispatch={props.dispatch} />
         </div>
     );
 };
