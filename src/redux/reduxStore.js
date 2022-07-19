@@ -7,6 +7,8 @@ let reducers = combineReducers({
     dialogsPage:dialogsReducer
 })
 
+
+// noinspection JSDeprecatedSymbols
 let store = createStore(reducers)
 
 export default store;

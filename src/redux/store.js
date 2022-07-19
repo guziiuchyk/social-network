@@ -3,9 +3,6 @@ import dialogsReducer from "./reducers/dialogsReducer";
 
 let store = {
     _data: {
-        _setTextareaText(text) {
-            this.profilePage.NewPostText = text;
-        },
         profilePage: {
             postsData: [
                 {id: '1', likeCount: '23', text: 'Hello Do you like me?'},

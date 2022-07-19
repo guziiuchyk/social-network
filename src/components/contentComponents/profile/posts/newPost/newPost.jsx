@@ -2,6 +2,7 @@ import React from 'react';
 import './newPost.css';
 
 const NewPost = (props) => {
+
     return (
         <div className="profile__create-post">
             <div className="profile__create-post__title">MyPosts</div>

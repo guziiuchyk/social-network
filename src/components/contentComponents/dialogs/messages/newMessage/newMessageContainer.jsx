@@ -1,21 +1,20 @@
-import React from 'react';
 import './newMessage.css'
 import {sendNewMessageCreator, updateNewMessageTextCreator} from "../../../../../redux/reducers/dialogsReducer";
+import {connect} from "react-redux";
 import NewMessage from "./newMessage";
 
 
-const NewMessageContainer = (props) => {
-
-    let sendMessage = () => {
-        props.dispatch(sendNewMessageCreator())
+let mapDispatchToProps = (dispatch) => {
+    return{
+        OnChangeTextarea: (e) => {dispatch(updateNewMessageTextCreator(e.target.value))},
+        sendMessage: (e) => {dispatch(sendNewMessageCreator(e.target.value))}
     }
-
-    let OnChangeTextarea = (e) => {
-        props.dispatch(updateNewMessageTextCreator(e.target.value));
-    };
-
-
-    return <NewMessage newMessageText={props.dialogsPage.newMessageText} OnChangeTextarea={OnChangeTextarea} sendMessage={sendMessage} />
 };
+debugger
+let mapStateToProps = (state) => {
+     return {newMessageText:state.dialogsPage.newMessageText}
+}
+
+const NewMessageContainer = connect(mapStateToProps,mapDispatchToProps)(NewMessage);
 
 export default NewMessageContainer;
